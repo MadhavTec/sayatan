@@ -10,7 +10,6 @@ package com.puzzle;
 public class ConsecutiveSum {
 
 	static int consecutive(long num) {
-
 		long sum = 0;
 		int count = 0;
 		long size;
@@ -36,9 +35,9 @@ public class ConsecutiveSum {
 		return count;
 
 	}
-	
+
 	public static void main(String[] args) {
-		
+
 		ConsecutiveSum.consecutive(10);
 	}
 }

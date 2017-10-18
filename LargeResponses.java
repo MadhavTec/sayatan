@@ -23,15 +23,15 @@ public class LargeResponses {
 	private static final String BASE_DIR = "C:/Users/ss85783/Downloads";
 
 	public void solution() {
-		
-		
+
 		final Scanner scan = new Scanner(System.in);
 		System.out.println("Enter Filename");
 		String filename = scan.nextLine();
 		List<String> lines = new ArrayList<>();
 		StringBuffer result = new StringBuffer();
 		System.out.println("Parsing File");
-		try (Stream<String> stream = Files.lines(Paths.get(/*BASE_DIR + "/" +*/ filename + ".txt"))) {
+		try (Stream<String> stream = Files
+				.lines(Paths.get(/* BASE_DIR + "/" + */ filename + ".txt"))) {
 
 			lines = stream.filter(
 					line -> Integer.parseInt(line.substring(line.lastIndexOf(" "), line.length()).trim()) >= 5000)
@@ -48,18 +48,15 @@ public class LargeResponses {
 			try (BufferedWriter writer = Files.newBufferedWriter(path)) {
 				writer.write(result.toString());
 			}
-			
-			System.out.println("Response File Created Successfully - "+"bytes_" + filename + ".txt");
-
+			System.out.println("Response File Created Successfully - " + "bytes_" + filename + ".txt");
 		} catch (IOException e) {
-			System.out.println("Unable To Parse File - "+e.getMessage());
+			System.out.println("Unable To Parse File - " + e.getMessage());
 		}
 
 	}
 
 	public static void main(String[] args) {
 
-		
 		LargeResponses responses = new LargeResponses();
 		responses.solution();
 

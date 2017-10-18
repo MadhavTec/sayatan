@@ -23,10 +23,10 @@ public class BuyingShowTicket {
 		}
 		return times;
 	}
-	
+
 	public static void main(String[] args) {
-		
-		int[] tickets = {2,6,3,4,5};
+
+		int[] tickets = { 2, 6, 3, 4, 5 };
 		System.out.println(BuyingShowTicket.waitingTime(tickets, 2));
 	}
 }

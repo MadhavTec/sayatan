@@ -14,28 +14,17 @@ import java.util.stream.Stream;
 public class PsychometricTesting {
 
 	static int[] jobOffers(int[] scores, int[] lowerLimits, int[] upperLimits) {
-
 		int count = 0;
-
 		int[] result = new int[lowerLimits.length];
-
 		if (lowerLimits.length != upperLimits.length) {
-
 			throw new RuntimeException("Invalid Range Inputs");
 		}
-
 		for (; count < lowerLimits.length; count++) {
-
-			// List<Integer> offer = new ArrayList<>();
 			final int low = lowerLimits[count];
 			final int high = upperLimits[count];
 			int[] offer = Arrays.stream(scores).filter(score -> score >= low && score <= high).toArray();
-
-			result[count]=offer.length;
-
+			result[count] = offer.length;
 		}
-		
-		
 		return result;
 	}
 
@@ -48,14 +37,11 @@ public class PsychometricTesting {
 		String low = scan.nextLine();
 		System.out.println("Enter higher limit Separated By Comma(,)");
 		String high = scan.nextLine();
-
-		int [] result = PsychometricTesting.jobOffers(Stream.of(scores.split(",")).mapToInt(Integer::parseInt).toArray(),
+		int[] result = PsychometricTesting.jobOffers(Stream.of(scores.split(",")).mapToInt(Integer::parseInt).toArray(),
 				Stream.of(low.split(",")).mapToInt(Integer::parseInt).toArray(),
 				Stream.of(high.split(",")).mapToInt(Integer::parseInt).toArray());
-		
 		for (int i : result) {
-			
-			System.out.print(i+",");
+			System.out.print(i + ",");
 		}
 	}
 }
